@@ -1,10 +1,14 @@
-// api/dataGenerator.js
+// This code was generated using AI.
+// This code generates fake water quality data for use Water Quality Dashboard.
+// The data includes various water quality parameters collected from different sample sites
+// in the waters around Vancouver Island, British Columbia. The coordinates are generated to
+// be roughly in the ocean to the west of Vancouver Island.
 
 const generateBCGPSCoordinates = () => {
   const latMin = 48.3;
   const latMax = 50.1;
-  const lonMin = -126.5;
-  const lonMax = -123.2;
+  const lonMin = -128.0;
+  const lonMax = -126.5;
 
   const lat = (Math.random() * (latMax - latMin) + latMin).toFixed(6);
   const lon = (Math.random() * (lonMax - lonMin) + lonMin).toFixed(6);
@@ -12,7 +16,7 @@ const generateBCGPSCoordinates = () => {
 };
 
 const generateFakeWaterQualityData = () => {
-  const sampleSites = ["Site A", "Site B", "Site C", "Site D"];
+  const sampleSites = ["A", "B", "C", "D"];
   const projects = ["Project X", "Project Y", "Project Z"];
   const workAreas = ["Area 1", "Area 2", "Area 3"];
   const fakeData = [];
@@ -31,7 +35,6 @@ const generateFakeWaterQualityData = () => {
     fakeData.push({
       collected: collectedDate,
       site,
-      siteID: `ID-${i}`,
       project,
       lat: parseFloat(siteCoordinates[site].lat),
       lon: parseFloat(siteCoordinates[site].lon),

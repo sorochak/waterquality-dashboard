@@ -1,10 +1,13 @@
 import React from "react";
 import { Grid, Box, TextField, MenuItem, Button } from "@mui/material";
 
+// FilterBox component to provide filtering options for the water quality data
 const FilterBox = ({ filters, onFilterChange, onSearch }) => {
   return (
     <Box sx={{ p: 2 }}>
+      {/* Grid container to organize filter fields */}
       <Grid container spacing={2}>
+        {/* Dropdown for selecting the site */}
         <Grid item xs={12} sm={6} md={4}>
           <TextField
             select
@@ -20,6 +23,7 @@ const FilterBox = ({ filters, onFilterChange, onSearch }) => {
             <MenuItem value="Site D">Site D</MenuItem>
           </TextField>
         </Grid>
+        {/* Dropdown for selecting the project */}
         <Grid item xs={12} sm={6} md={4}>
           <TextField
             select
@@ -34,6 +38,7 @@ const FilterBox = ({ filters, onFilterChange, onSearch }) => {
             <MenuItem value="Project Z">Project Z</MenuItem>
           </TextField>
         </Grid>
+        {/* Dropdown for selecting the sample type */}
         <Grid item xs={12} sm={6} md={4}>
           <TextField
             select
@@ -50,6 +55,7 @@ const FilterBox = ({ filters, onFilterChange, onSearch }) => {
             <MenuItem value="phosphate">Phosphate</MenuItem>
           </TextField>
         </Grid>
+        {/* Dropdown for selecting the work area */}
         <Grid item xs={12} sm={6} md={4}>
           <TextField
             select
@@ -64,6 +70,7 @@ const FilterBox = ({ filters, onFilterChange, onSearch }) => {
             <MenuItem value="Area 3">Area 3</MenuItem>
           </TextField>
         </Grid>
+        {/* Date picker for the start date */}
         <Grid item xs={12} sm={6} md={4}>
           <TextField
             label="Date From"
@@ -76,6 +83,7 @@ const FilterBox = ({ filters, onFilterChange, onSearch }) => {
             }}
           />
         </Grid>
+        {/* Date picker for the end date */}
         <Grid item xs={12} sm={6} md={4}>
           <TextField
             label="Date To"
@@ -88,6 +96,7 @@ const FilterBox = ({ filters, onFilterChange, onSearch }) => {
             }}
           />
         </Grid>
+        {/* Button to trigger the search action */}
         <Grid item xs={12}>
           <Button
             variant="contained"
