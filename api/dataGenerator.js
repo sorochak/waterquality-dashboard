@@ -7,8 +7,8 @@
 const generateBCGPSCoordinates = () => {
   const latMin = 48.3;
   const latMax = 50.1;
-  const lonMin = -128.0;
-  const lonMax = -126.5;
+  const lonMin = -129.0;
+  const lonMax = -127.0;
 
   const lat = (Math.random() * (latMax - latMin) + latMin).toFixed(6);
   const lon = (Math.random() * (lonMax - lonMin) + lonMin).toFixed(6);
