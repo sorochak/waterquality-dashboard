@@ -1,6 +1,3 @@
-<<<<<<< HEAD
-add to this
-=======
 # Water Quality Dashboard
 
 The Water Quality Dashboard is a web application designed to display water quality data visually and spatially. Users can filter data based on various parameters, view the data in a table format, display it on a map, or visualize it in a chart. The application uses a mock data generator to simulate water quality measurements collected from different sites and projects in the waters around Vancouver Island, British Columbia.
@@ -107,4 +104,4 @@ The React app will start running on http://localhost:3000.
 
 - The mock data generator simulates water quality measurements collected from various sites and projects in the waters around Vancouver Island, British Columbia.
 - The map view will automatically center and adjust the zoom level to fit all markers within the view.
->>>>>>> bc48d26 (finish water quality dashboard)
+  > > > > > > > bc48d26 (finish water quality dashboard)
