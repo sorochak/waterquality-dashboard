@@ -106,4 +106,3 @@ The React app will start running on http://localhost:3000.
 
 - The mock data generator simulates water quality measurements collected from various sites and projects in the waters around Vancouver Island, British Columbia.
 - The map view will automatically center and adjust the zoom level to fit all markers within the view.
-  > > > > > > > bc48d26 (finish water quality dashboard)
