@@ -19,6 +19,7 @@ The Water Quality Dashboard is a web application designed to display water quali
 
 ## Directory Structure
 
+```bash
 water-quality-dashboard/
 ├── api/
 │ ├── dataGenerator.js
@@ -40,6 +41,7 @@ water-quality-dashboard/
 │ ├── package.json
 │ ├── package-lock.json
 ├── README.md
+```
 
 ## Installation and Running Instructions
 
