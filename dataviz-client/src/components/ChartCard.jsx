@@ -15,7 +15,7 @@ const ChartCard = ({ data }) => {
   const plotRef = useRef(null);
   // State to manage the selected fields for the X, Y, and Z axes
   const [selectedX, setSelectedX] = useState("collected");
-  const [selectedY, setSelectedY] = useState("pH");
+  const [selectedY, setSelectedY] = useState("ph");
   const [selectedZ, setSelectedZ] = useState("");
 
   // Extract keys from the data for dropdown options

@@ -14,6 +14,19 @@ app.use(cors());
 // Middleware to parse incoming JSON requests
 app.use(express.json());
 
+const convertNumericFields = (data) => {
+  return data.map((entry) => ({
+    ...entry,
+    lat: parseFloat(entry.lat),
+    lon: parseFloat(entry.lon),
+    ph: parseFloat(entry.ph),
+    turbidity: parseFloat(entry.turbidity),
+    dissolvedoxygen: parseFloat(entry.dissolvedoxygen),
+    nitrate: parseFloat(entry.nitrate),
+    phosphate: parseFloat(entry.phosphate),
+  }));
+};
+
 // Define the route to get filtered water quality data
 app.get("/api/data", async (req, res) => {
   try {
@@ -45,7 +58,11 @@ app.get("/api/data", async (req, res) => {
     }
 
     const result = await pool.query(query, queryParams);
-    res.json(result.rows);
+
+    // Convert numeric fields from strings to numbers
+    const processedData = convertNumericFields(result.rows);
+
+    res.json(processedData);
   } catch (error) {
     console.error("Error fetching data from database:", error);
     res.status(500).json({ error: "Internal server error" });

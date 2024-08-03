@@ -23,20 +23,20 @@ const seedData = async () => {
   const data = generateFakeWaterQualityData();
   for (let item of data) {
     await pool.query(
-      `INSERT INTO water_quality_data (collected, site, project, lat, lon, workArea, pH, turbidity, dissolvedOxygen, nitrate, phosphate)
+      `INSERT INTO water_quality_data (collected, site, project, lat, lon, workArea, ph, turbidity, dissolvedoxygen, nitrate, phosphate)
        VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11)`,
       [
         item.collected,
         item.site,
         item.project,
-        item.lat,
-        item.lon,
+        parseFloat(item.lat), // Ensure lat is a float
+        parseFloat(item.lon), // Ensure lon is a float
         item.workArea,
-        item.pH,
-        item.turbidity,
-        item.dissolvedOxygen,
-        item.nitrate,
-        item.phosphate,
+        parseFloat(item.ph), // Ensure pH is a float
+        parseFloat(item.turbidity), // Ensure turbidity is a float
+        parseFloat(item.dissolvedoxygen), // Ensure dissolvedOxygen is a float
+        parseFloat(item.nitrate), // Ensure nitrate is a float
+        parseFloat(item.phosphate), // Ensure phosphate is a float
       ]
     );
   }

@@ -8,7 +8,7 @@ CREATE TABLE water_quality_data (
   workArea VARCHAR(255),
   pH DECIMAL,
   turbidity DECIMAL,
-  dissolvedOxygen DECIMAL,
+  dissolvedoxygen DECIMAL,
   nitrate DECIMAL,
   phosphate DECIMAL
 );

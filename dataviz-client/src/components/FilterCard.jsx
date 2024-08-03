@@ -48,9 +48,9 @@ const FilterCard = ({ filters, onFilterChange, onSearch }) => {
             fullWidth
           >
             <MenuItem value="">All</MenuItem>
-            <MenuItem value="pH">pH</MenuItem>
+            <MenuItem value="ph">pH</MenuItem>
             <MenuItem value="turbidity">Turbidity</MenuItem>
-            <MenuItem value="dissolvedOxygen">Dissolved Oxygen</MenuItem>
+            <MenuItem value="dissolvedoxygen">Dissolved Oxygen</MenuItem>
             <MenuItem value="nitrate">Nitrate</MenuItem>
             <MenuItem value="phosphate">Phosphate</MenuItem>
           </TextField>

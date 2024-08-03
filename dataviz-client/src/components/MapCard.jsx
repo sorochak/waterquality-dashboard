@@ -42,11 +42,11 @@ const MapCard = ({ isFetchingMapData, markerPoints, showMap }) => {
                 <br />
                 Date: {new Date(point.collected).toLocaleDateString()}
                 <br />
-                pH: {point.pH}
+                pH: {point.ph}
                 <br />
                 Turbidity: {point.turbidity}
                 <br />
-                Dissolved Oxygen: {point.dissolvedOxygen}
+                Dissolved Oxygen: {point.dissolvedoxygen}
                 <br />
                 Nitrate: {point.nitrate}
                 <br />

@@ -42,6 +42,7 @@ const App = () => {
       const fetchedData = await response.json();
       // Update the state with the fetched data
       setData(fetchedData);
+      console.log("Fetched data:", fetchedData);
       // Indicate that the map should be shown
       setShowMap(true);
     } catch (error) {
