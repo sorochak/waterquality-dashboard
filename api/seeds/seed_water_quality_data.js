@@ -20,6 +20,15 @@ const seedData = async () => {
 
   while (attempts < maxRetries) {
     try {
+      // Check if the table already has data
+      const res = await pool.query("SELECT COUNT(*) FROM water_quality_data");
+      const count = parseInt(res.rows[0].count, 10);
+
+      if (count > 0) {
+        console.log("Data already exists, skipping seeding.");
+        break; // Exit the loop if data exists
+      }
+
       const data = generateFakeWaterQualityData();
       for (let item of data) {
         await pool.query(
@@ -55,10 +64,6 @@ const seedData = async () => {
   pool.end();
 };
 
-seedData()
-  .then(() => {
-    console.log("Seeding completed successfully.");
-  })
-  .catch((err) => {
-    console.error("Error seeding data:", err);
-  });
+seedData().catch((err) => {
+  console.error("Error seeding data:", err);
+});

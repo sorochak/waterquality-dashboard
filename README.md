@@ -55,7 +55,58 @@ water-quality-dashboard/
 
 ## Installation and Running Instructions
 
-### Backend Setup
+### Using Docker and Docker Compose
+
+This application is containerized using Docker. Docker Compose manages the services and orchestrates the containers.
+
+### Prerequisites
+
+- Docker
+
+### Environment Variables Setup
+
+1. **Copy the sample.env file to .env:**
+
+```bash
+cp sample.env .env
+```
+
+2. **Update the .env file with your specific environment variables:**
+
+- Replace the placeholder values with your actual database credentials and other configurations.
+
+### Docker Compose Instructions
+
+1. **Build and run the containers:**
+
+From the root directory of the project, run:
+
+```bash
+docker-compose up --build
+```
+
+This command will build the Docker images and start the containers.
+
+2. **Access the application:**
+
+- The backend API will be running on http://localhost:5001
+- The frontend will be accessible at http://localhost:3000
+
+3. **Stop the containers:**
+
+To stop the containers, press Ctrl + C in the terminal where the Docker Compose process is running.
+
+To stop and remove all containers, networks, and volumes associated with the services, run:
+
+```bash
+docker-compose down
+```
+
+### Traditional Setup (Without Docker)
+
+If you prefer to run the project without Docker, follow these steps:
+
+#### Backend Setup
 
 1. **Set up the PostgreSQL Database:**
 
@@ -124,7 +175,7 @@ npm start
 
 The backend server will start running on http://localhost:5001.
 
-### Frontend Setup
+#### Frontend Setup
 
 1. **Navigate to the `dataviz-client` directory:**
 
