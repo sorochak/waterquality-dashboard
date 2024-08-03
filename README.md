@@ -15,6 +15,7 @@ The Water Quality Dashboard is a web application designed to display water quali
 - **Backend:**
   - Node.js
   - Express
+  - PostgreSQL
   - CORS
 
 ## Directory Structure
@@ -22,8 +23,17 @@ The Water Quality Dashboard is a web application designed to display water quali
 ```bash
 water-quality-dashboard/
 ├── api/
-│ ├── dataGenerator.js
 │ ├── server.js
+│ ├── package.json
+│ ├── package-lock.json
+├── db/
+│ ├── seeds/
+│ │ ├── seed_water_quality_data.js
+│ ├── migrations/
+│ │ ├── 001_create_water_quality_data_table.sql
+│ ├── schema.sql
+│ ├── dataGenerator.js
+│ ├── db.js
 │ ├── package.json
 │ ├── package-lock.json
 ├── dataviz-client/
@@ -47,19 +57,66 @@ water-quality-dashboard/
 
 ### Backend Setup
 
-1. **Navigate to the `api` directory:**
+1. **Set up the PostgreSQL Database:**
+
+- **Ensure PostgreSQL is installed on your machine.**
+  if not, you can install it using Homebrew (for macOS)
 
 ```bash
-cd water-quality-dashboard/api
+brew install postgresql
 ```
 
-2. **Install the dependencies:**
+- Start the PostgreSQL service:
+
+```bash
+brew services start postgresql
+```
+
+- Create a new database named 'water_quality':
+
+```bash
+createdb water_quality
+```
+
+- Navigate to the db directory where the schema.sql file is located:
+
+```bash
+cd water-quality-dashboard/db
+```
+
+- Install dependencies in the db directory:
 
 ```bash
 npm install
 ```
 
-3. **Start the Express server:**
+- Run the schema.sql script to set up the database schema:
+
+```bash
+psql -d water_quality -f db/migrations/schema.sql
+```
+
+- Run the seed script to populate the database with mock data (note you'll need to install the bad):
+
+```bash
+node seeds/seed_water_quality_data.js
+```
+
+2. **API Server Setup:**
+
+- Navigate to the api directory:
+
+```bash
+cd ../api
+```
+
+- Install the required Node.js dependencies:
+
+```bash
+npm install
+```
+
+- Start the Express server
 
 ```bash
 npm start
