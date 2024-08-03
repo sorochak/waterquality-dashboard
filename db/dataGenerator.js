@@ -46,7 +46,7 @@ const generateFakeWaterQualityData = () => {
       phosphate: parseFloat((Math.random() * 5).toFixed(2)),
     });
   }
-  console.log(fakeData);
+
   return fakeData;
 };
 
