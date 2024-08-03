@@ -6,7 +6,7 @@ CREATE TABLE water_quality_data (
   lat DECIMAL,
   lon DECIMAL,
   workArea VARCHAR(255),
-  pH DECIMAL,
+  ph DECIMAL,
   turbidity DECIMAL,
   dissolvedoxygen DECIMAL,
   nitrate DECIMAL,

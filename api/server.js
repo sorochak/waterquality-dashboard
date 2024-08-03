@@ -1,9 +1,9 @@
 require("dotenv").config({
-  path: "/Users/austensorochak/Documents/Jobs/2024/earthSoft/interview4/data-vis/.env",
+  path: "../.env",
 });
 const express = require("express");
 const cors = require("cors");
-const pool = require("../db/db");
+const pool = require("./db");
 
 // Initialize the express application
 const app = express();

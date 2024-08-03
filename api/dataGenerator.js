@@ -1,4 +1,3 @@
-// This code was generated using AI.
 // This code generates fake water quality data for use Water Quality Dashboard.
 // The data includes various water quality parameters collected from different sample sites
 // in the waters around Vancouver Island, British Columbia. The coordinates are generated to

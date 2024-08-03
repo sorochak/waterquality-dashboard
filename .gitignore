@@ -1,5 +1,6 @@
 # .gitignore
 node_modules
 api/node_modules
-client/node_modules
+dataviz-client/node_modules
+db/node_modules
 .env
