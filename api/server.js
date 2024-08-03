@@ -1,6 +1,9 @@
+require("dotenv").config({
+  path: "/Users/austensorochak/Documents/Jobs/2024/earthSoft/interview4/data-vis/.env",
+});
 const express = require("express");
 const cors = require("cors");
-const { generateFakeWaterQualityData } = require("./dataGenerator");
+const pool = require("../db/db");
 
 // Initialize the express application
 const app = express();
@@ -11,51 +14,42 @@ app.use(cors());
 // Middleware to parse incoming JSON requests
 app.use(express.json());
 
-// Generate initial set of fake water quality data
-let data = generateFakeWaterQualityData();
-
 // Define the route to get filtered water quality data
-app.get("/api/data", (req, res) => {
-  // Start with the full dataset
-  let filteredData = data;
+app.get("/api/data", async (req, res) => {
+  try {
+    let query = "SELECT * FROM water_quality_data WHERE 1=1";
+    const queryParams = [];
 
-  // Filter data by site if the query parameter is provided
-  if (req.query.site) {
-    filteredData = filteredData.filter((item) => item.site === req.query.site);
-  }
-  // Filter data by project if the query parameter is provided
-  if (req.query.project) {
-    filteredData = filteredData.filter(
-      (item) => item.project === req.query.project
-    );
-  }
-  // Filter data by sample type if the query parameter is provided
-  if (req.query.sampleType) {
-    filteredData = filteredData.filter((item) => item[req.query.sampleType]);
-  }
-  // Filter data by work area if the query parameter is provided
-  if (req.query.workArea) {
-    filteredData = filteredData.filter(
-      (item) => item.workArea === req.query.workArea
-    );
-  }
-  // Filter data by dateFrom if the query parameter is provided
-  if (req.query.dateFrom) {
-    const dateFrom = new Date(req.query.dateFrom);
-    filteredData = filteredData.filter(
-      (item) => new Date(item.collected) >= dateFrom
-    );
-  }
-  // Filter data by dateTo if the query parameter is provided
-  if (req.query.dateTo) {
-    const dateTo = new Date(req.query.dateTo);
-    filteredData = filteredData.filter(
-      (item) => new Date(item.collected) <= dateTo
-    );
-  }
+    if (req.query.site) {
+      queryParams.push(req.query.site);
+      query += ` AND site = $${queryParams.length}`;
+    }
+    if (req.query.project) {
+      queryParams.push(req.query.project);
+      query += ` AND project = $${queryParams.length}`;
+    }
+    if (req.query.sampleType) {
+      query += ` AND ${req.query.sampleType} IS NOT NULL`;
+    }
+    if (req.query.workArea) {
+      queryParams.push(req.query.workArea);
+      query += ` AND workArea = $${queryParams.length}`;
+    }
+    if (req.query.dateFrom) {
+      queryParams.push(new Date(req.query.dateFrom));
+      query += ` AND collected >= $${queryParams.length}`;
+    }
+    if (req.query.dateTo) {
+      queryParams.push(new Date(req.query.dateTo));
+      query += ` AND collected <= $${queryParams.length}`;
+    }
 
-  // Send the filtered data as a JSON response
-  res.json(filteredData);
+    const result = await pool.query(query, queryParams);
+    res.json(result.rows);
+  } catch (error) {
+    console.error("Error fetching data from database:", error);
+    res.status(500).json({ error: "Internal server error" });
+  }
 });
 
 // Start the server and listen on the specified port
