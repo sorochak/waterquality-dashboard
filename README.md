@@ -30,7 +30,7 @@ water-quality-dashboard/
 │ ├── src/
 │ │ ├── components/
 │ │ │ ├── ChartCard.jsx
-│ │ │ ├── FilterBox.jsx
+│ │ │ ├── FilterCard.jsx
 │ │ │ ├── MapCard.jsx
 │ │ │ ├── TableCard.jsx
 │ │ ├── App.jsx

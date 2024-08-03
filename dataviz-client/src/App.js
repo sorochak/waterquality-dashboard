@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Container, Typography, Box, Tabs, Tab } from "@mui/material";
 import ChartCard from "./components/ChartCard";
-import FilterBox from "./components/FilterBox";
+import FilterCard from "./components/FilterCard";
 import MapCard from "./components/MapCard";
 import TableCard from "./components/TableCard";
 
@@ -74,7 +74,7 @@ const App = () => {
           Water Quality Dashboard
         </Typography>
         <Box sx={{ my: 4 }}>
-          <FilterBox
+          <FilterCard
             filters={filters}
             onFilterChange={handleFilterChange}
             onSearch={handleSearch}

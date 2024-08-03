@@ -1,8 +1,8 @@
 import React from "react";
 import { Grid, Box, TextField, MenuItem, Button } from "@mui/material";
 
-// FilterBox component to provide filtering options for the water quality data
-const FilterBox = ({ filters, onFilterChange, onSearch }) => {
+// FilterCard component to provide filtering options for the water quality data
+const FilterCard = ({ filters, onFilterChange, onSearch }) => {
   return (
     <Box sx={{ p: 2 }}>
       {/* Grid container to organize filter fields */}
@@ -112,4 +112,4 @@ const FilterBox = ({ filters, onFilterChange, onSearch }) => {
   );
 };
 
-export default FilterBox;
+export default FilterCard;
