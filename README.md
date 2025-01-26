@@ -82,7 +82,7 @@ cp sample.env .env
 From the root directory of the project, run:
 
 ```bash
-docker-compose up --build
+docker compose up --build
 ```
 
 This command will build the Docker images and start the containers.
