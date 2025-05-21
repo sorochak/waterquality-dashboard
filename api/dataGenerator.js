@@ -38,11 +38,11 @@ const generateFakeWaterQualityData = () => {
       lat: parseFloat(siteCoordinates[site].lat),
       lon: parseFloat(siteCoordinates[site].lon),
       workArea,
-      ph: parseFloat((Math.random() * 2 + 6).toFixed(2)),
-      turbidity: parseFloat((Math.random() * 100).toFixed(2)),
-      dissolvedoxygen: parseFloat((Math.random() * 14).toFixed(2)),
-      nitrate: parseFloat((Math.random() * 10).toFixed(2)),
-      phosphate: parseFloat((Math.random() * 5).toFixed(2)),
+      ph: parseFloat((Math.random() * 0.2 + 7.9).toFixed(2)), // 7.9–8.1
+      turbidity: parseFloat((Math.random() * 0.5 + 0.05).toFixed(2)), // 0.05–0.55 NTU
+      dissolvedoxygen: parseFloat((Math.random() * 1.5 + 6.5).toFixed(2)), // 6.5–8.0 mg/L
+      nitrate: parseFloat((Math.random() * 0.3 + 0.2).toFixed(2)), // 0.2–0.5 mg/L
+      phosphate: parseFloat((Math.random() * 0.05 + 0.01).toFixed(3)), // 0.01–0.06 mg/L
     });
   }
 
